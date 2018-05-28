@@ -224,9 +224,7 @@ void AFD::saveToFile(string arquivo){
 	for(auto iterator = this->conexoes.begin(); iterator != this->conexoes.end(); iterator++){
 		saida << iterator->first.first << " " << iterator->first.second << " -> " << iterator->second << endl; 
 	}
-
-	saida << endl << endl;
-	saida << "Presione ENTER para voltar ao menu";
+	cout << "Presione ENTER para voltar ao menu";
 	getchar();
 
 }

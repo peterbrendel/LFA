@@ -4,9 +4,8 @@
 using namespace std;
 
 AFD * afd;
-
 const char * clear;
-
+string saida;
 int main(int argc, const char* argv[]){
 	
 	if(!OS){
@@ -15,7 +14,7 @@ int main(int argc, const char* argv[]){
 		clear = "cls";
 	}
 	
-	string saida;
+	
 
 	if(argc == 1){
 		char escolha;
@@ -108,6 +107,7 @@ void game_loop(){
 		char c;
 		c = getchar();
 		system(clear);
+
 		switch(c){
 
 			case '1':
@@ -116,6 +116,14 @@ void game_loop(){
 			break;
 
 			case '2':
+			if(!saida.empty()){
+				afd->saveToFile(saida);
+			}
+			else{
+				cout << "Digite o nome do arquivo de saida: ";
+				cin >> saida;
+				afd->saveToFile(saida);
+			}
 			break;
 
 			case '3':
@@ -123,6 +131,7 @@ void game_loop(){
 				cout << "Minimizando automato...";
 				cout << endl;
 				*afd = afd->Minimizar();
+				saida = "";
 			}else{
 				cout << "Este automato ja foi minimizado!" << endl;
 			}
