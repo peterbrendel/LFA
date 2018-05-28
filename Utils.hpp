@@ -1,7 +1,16 @@
 #ifndef UTILS_HPP
 #define UTILS_HPP
 
-#include <bits/stdc++.h>
+#include <vector>
+#include <string>
+#include <map>
+#include <utility>
+#include <iostream>
+#include <string.h>
+#include <sstream>
+#include <fstream>
+#include <algorithm>
+#include <queue>
 
 	#ifdef _WIN32
 		#define OS 1
