@@ -50,13 +50,14 @@ int main(int argc, const char* argv[]){
 						Utils::printFlags();
 						return 0;
 					}
-
+					break;
+					
 					case 'o':
 					if(argc > 1+i){
-						cout << "Criando novo automato baseado no arquivo " << argv[1+i] << endl;
+						cout << "Enviando saida para o arquivo " << argv[1+i] << endl;
 						afd = new AFD(argv[1+i]); // Passa como parametro o arquivo .afd
 					}else{
-						cerr << "Arquivo nao encontrado" << endl;
+						cerr << "Nome do arquivo de saida nao definido" << endl;
 						Utils::printFlags();
 						return 0;
 					}
