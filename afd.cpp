@@ -221,22 +221,24 @@ void AFD::saveToFile(string arquivo)
 	string nome = arquivo+".afd";
 	saida.open(npath);
 
-	saida << this->inicial << endl;
-	saida << this->estados.size();
+	saida << "Estado Inicial: " << this->inicial << endl;
+	
+	saida << "Todos os Estados:\nQuantidade: " << this->estados.size() << endl;
 	for (int i = 0; i < (int)this->estados.size(); i++)
 		saida << " " << this->estados[i];
 	
 	saida << endl;
-	saida << this->EstadoFinalNovo.size();
+	saida << "Estados Finais:" << this->EstadoFinalNovo.size();
 	for (int i = 0; i < (int)this->EstadoFinalNovo.size(); i++)////////
 		saida << " " << this->EstadoFinalNovo[i];///////
 
 	saida << endl;
-	saida << this->alfabeto.size();
-	for (int i = 0; i < (int)this->alfabeto.size(); i++)
-		saida << " " << alphabet[i];
+	saida << "Alfabeto:" <<this->alfabeto.size();
+	for (int i = 0; i < this->alfabeto.size(); i++)
+		saida << " " << alfabeto[i];
 
-	saida << endl << this->conexoes.size() << endl;
+	saida << endl;
+	saida << "Quantidade de conexoes: " << this->conexoes.size() << endl;
 	map<pair<string, char>, string >::iterator it;
 	for (it = this->conexoes.begin(); it != this->conexoes.end(); it++)
 		saida << it->first.first << " " << it->first.second << " " << it->second << endl;
