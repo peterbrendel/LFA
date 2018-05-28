@@ -28,12 +28,12 @@ public:
 	bool 	isInutil(string estado);
 	// bool 	ReadEntry(string daVez, string::iterator entry);
 	int 	lerArquivoAFD(string diretorio);
-	int 	FazerFuncTotal();
+	int 	FuncTot();
 	string 	get_inicial();
 	void 	set_inicial(string inicial);
 	void 	conectar_estados(pair<string,char> from, string to);
 	void 	AddFinalStates(string state);
-	void 	AddStates(string state);
+	void 	AddEstados(string state);
 	void 	Fecho(string daVez);
 	// void 	NewAlphabet(string alpha);
 	void 	RemoverEstado(string estado);
