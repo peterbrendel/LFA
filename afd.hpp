@@ -1,7 +1,16 @@
 #ifndef AFD_HPP
 #define AFD_HPP
 
-#include <bits/stdc++.h>
+#include <vector>
+#include <string>
+#include <map>
+#include <utility>
+#include <iostream>
+#include <string.h>
+#include <sstream>
+#include <fstream>
+#include <algorithm>
+#include <queue>
 #include "Utils.hpp"
 
 void game_loop();
