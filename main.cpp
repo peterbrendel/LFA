@@ -49,7 +49,7 @@ int main(int argc, const char* argv[]){
 				switch(op[1]){
 					case 'n':
 					cout << "Criando novo automato..." << endl;
-					afd = new AFD();
+					afd = new AFD(1);
 
 					case 'i':
 					if(argc > 1+i){
@@ -99,12 +99,28 @@ void game_loop(){
 		Utils::menu();
 		char c;
 		c = getchar();
-
+		system(clear);
 		switch(c){
 
 			case '1':
 			getchar();
 			afd->saveToFile();
+			break;
+
+			case '2':
+			break;
+
+			case '3':
+			if(!afd->isMinimizado()){
+				cout << "Minimizando automato...";
+				cout << endl;
+				*afd = afd->Minimizar();
+			}else{
+				cout << "Este automato ja foi minimizado!" << endl;
+			}
+			cout << endl << endl << "Pressione ENTER para voltar ao menu";
+			getchar();
+			getchar();
 			break;
 
 			case 'Q':
