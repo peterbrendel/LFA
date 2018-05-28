@@ -50,10 +50,18 @@ int main(int argc, const char* argv[]){
 					case 'n':
 					cout << "Criando novo automato..." << endl;
 					afd = new AFD(1);
+					break;
 
 					case 'i':
 					if(argc > 1+i){
 						cout << "Criando novo automato baseado no arquivo " << argv[1+i] << endl;
+						if(afd != nullptr){
+							cout << "Automato ja criado. abortando criacao por arquivo" << endl << endl;
+							cout << "Pressione ENTER para abrir o menu";
+							getchar();
+							getchar();
+							break;
+						}
 						afd = new AFD(argv[1+i]); // Passa como parametro o arquivo .afd
 					}else{
 						cerr << "Arquivo nao encontrado" << endl;
