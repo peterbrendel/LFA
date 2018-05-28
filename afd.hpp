@@ -20,28 +20,29 @@ private:
 
 public:
 
+	AFD(int x);
 	AFD();
 	AFD(const char *);
 	AFD 	Minimizar();
 	bool 	isFinal(string estado);
 	bool 	isInicial(string estado);
 	bool 	isInutil(string estado);
+	bool	isMinimizado();
 	// bool 	ReadEntry(string daVez, string::iterator entry);
 	int 	lerArquivoAFD(string diretorio);
 	int 	FuncTot();
 	string 	get_inicial();
 	void 	set_inicial(string inicial);
 	void 	conectar_estados(pair<string,char> from, string to);
-	void 	AddFinalStates(string state);
+	void 	AddFinais(string state);
 	void 	AddEstados(string state);
-	void 	Fecho(string daVez);
+	void 	monta_fecho(string daVez);
 	// void 	NewAlphabet(string alpha);
 	void 	RemoverEstado(string estado);
 	void 	RemoverEstadosInalcancaveis();
 	void 	setEstadoInicial(string state);
 	void 	saveToFile(string file);
 	void	saveToFile();
-
 
 };
 
