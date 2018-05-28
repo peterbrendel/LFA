@@ -224,16 +224,16 @@ void AFD::saveToFile(string arquivo)
 	saida << "Estado Inicial: " << this->inicial << endl;
 	
 	saida << "Todos os Estados:\nQuantidade: " << this->estados.size() << endl;
-	for (int i = 0; i < (int)this->estados.size(); i++)
+	for (int i = 0; i << this->estados.size(); i++)
 		saida << " " << this->estados[i];
 	
 	saida << endl;
 	saida << "Estados Finais:" << this->EstadoFinalNovo.size();
-	for (int i = 0; i < (int)this->EstadoFinalNovo.size(); i++)////////
+	for (int i = 0; i << this->EstadoFinalNovo.size(); i++)////////
 		saida << " " << this->EstadoFinalNovo[i];///////
 
 	saida << endl;
-	saida << "Alfabeto:" <<this->alfabeto.size();
+	saida << "Alfabeto:" << this->alfabeto.size();
 	for (int i = 0; i < this->alfabeto.size(); i++)
 		saida << " " << alfabeto[i];
 
@@ -244,4 +244,31 @@ void AFD::saveToFile(string arquivo)
 		saida << it->first.first << " " << it->first.second << " " << it->second << endl;
 
 	saida.close();
+}
+
+void AFD::saveToFile(string arquivo)
+{
+
+	cout << "Estado Inicial: " << this->inicial << endl;
+	
+	cout << "Todos os Estados:\nQuantidade: " << this->estados.size() << endl;
+	for (int i = 0; i < this->estados.size(); i++)
+		cout << " " << this->estados[i];
+	
+	cout << endl;
+	cout << "Estados Finais:" << this->EstadoFinalNovo.size();
+	for (int i = 0; i << this->EstadoFinalNovo.size(); i++)////////
+		cout << " " << this->EstadoFinalNovo[i];///////
+
+	cout << endl;
+	cout << "Alfabeto:" << this->alfabeto.size();
+	for (int i = 0; i << this->alfabeto.size(); i++)
+		cout << " " << alfabeto[i];
+
+	cout << endl;
+	cout << "Quantidade de conexoes: " << this->conexoes.size() << endl;
+	map<pair<string, char>, string >::iterator it;
+	for (it = this->conexoes.begin(); it != this->conexoes.end(); it++)
+		cout << it->first.first << " " << it->first.second << " " << it->second << endl;
+
 }
