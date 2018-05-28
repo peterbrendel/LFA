@@ -6,7 +6,7 @@ AFD::AFD(){
 	this->minimizado = false;
 }
 
-AFD::AFD(){
+AFD::AFD(int x){
 	
 	this->minimizado = false;
 	
