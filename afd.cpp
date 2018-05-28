@@ -196,31 +196,39 @@ void AFD::saveToFile(string arquivo){
 	
 	ofstream saida;
 	string nome = arquivo+".afd";
-	saida.open(npath);
+	saida.open(nome);
 
-	saida << "Estado Inicial: " << this->inicial << endl;
+	saida << "Este automato " << (this->minimizado ? "foi":"nao foi") << " minimizado pelo programa" << endl << endl;
+
+	saida << "Estado inicial: " << this->inicial << endl << endl;
+
+	saida << "Estados:";
+	for(int i=0, size = this->estados.size(); i < size; i++){
+		saida << " " << this->estados[i];	
+	}
+	saida << endl << endl;
+
+	saida << "Estados finais:";
+	for(int i=0, size = this->finais.size(); i < size; i++){
+		saida << " " << this->finais[i];
+	}
+	saida << endl << endl;
+
+	saida << "Alfabeto:";
+	for(int i=0, size = this->alfabeto.size(); i < size; i++){
+		saida << " " << this->alfabeto[i];
+	}
+	saida << endl << endl;
 	
-	saida << "Todos os Estados:\nQuantidade: " << this->estados.size() << endl;
-	for (int i = 0; i << this->estados.size(); i++)
-		saida << " " << this->estados[i];
-	
-	saida << endl;
-	saida << "Estados Finais:" << this->EstadoFinalNovo.size();
-	for (int i = 0; i << this->EstadoFinalNovo.size(); i++)////////
-		saida << " " << this->EstadoFinalNovo[i];///////
+	saida << "Conexoes" << endl;;
+	for(auto iterator = this->conexoes.begin(); iterator != this->conexoes.end(); iterator++){
+		saida << iterator->first.first << " " << iterator->first.second << " -> " << iterator->second << endl; 
+	}
 
-	saida << endl;
-	saida << "Alfabeto:" << this->alfabeto.size();
-	for (int i = 0; i < this->alfabeto.size(); i++)
-		saida << " " << alfabeto[i];
+	saida << endl << endl;
+	saida << "Presione ENTER para voltar ao menu";
+	getchar();
 
-	saida << endl;
-	saida << "Quantidade de conexoes: " << this->conexoes.size() << endl;
-	map<pair<string, char>, string >::iterator it;
-	for (it = this->conexoes.begin(); it != this->conexoes.end(); it++)
-		saida << it->first.first << " " << it->first.second << " " << it->second << endl;
-
-	saida.close();
 }
 
 int AFD::FuncTot(){
