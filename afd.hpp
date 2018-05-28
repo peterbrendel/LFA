@@ -1,10 +1,16 @@
+#ifndef AFD_HPP
+#define AFD_HPP
+
 #include <bits/stdc++.h>
 #include "Utils.hpp"
+
+void game_loop();
 
 class AFD {
 
 private:
 	
+	bool minimizado;
 	string inicial;
 	string alfabeto;
 	vector<string> finais;
@@ -34,6 +40,9 @@ public:
 	void 	RemoverEstadosInalcancaveis();
 	void 	setEstadoInicial(string state);
 	void 	saveToFile(string file);
+	void	saveToFile();
 
 
 };
+
+#endif

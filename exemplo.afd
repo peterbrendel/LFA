@@ -1,0 +1,15 @@
+q0
+5 q0 q1 q2 qf0 qf1
+2 qf0 qf1
+2 a b
+10
+q0 a q1
+q0 b q2
+q1 a qf0
+q1 b q2
+q2 a q1
+q2 b qf1
+qf0 a qf0
+qf0 b qf1
+qf1 a qf0
+qf1 b qf1

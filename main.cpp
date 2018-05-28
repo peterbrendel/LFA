@@ -3,9 +3,19 @@
 
 using namespace std;
 
+AFD * afd;
+
+const char * clear;
+
 int main(int argc, const char* argv[]){
 	
-	AFD * afd;
+	if(!OS){
+		clear = "clear";
+	}else{
+		clear = "cls";
+	}
+	
+	string saida;
 
 	if(argc == 1){
 		char escolha;
@@ -30,7 +40,7 @@ int main(int argc, const char* argv[]){
 		return 0;
 	}else{
 
-		for(int i=1; i <= argc; i++){
+		for(int i=1; i < argc; i++){
 
 			string op = argv[i];
 
@@ -55,7 +65,7 @@ int main(int argc, const char* argv[]){
 					case 'o':
 					if(argc > 1+i){
 						cout << "Enviando saida para o arquivo " << argv[1+i] << endl;
-						afd = new AFD(argv[1+i]); // Passa como parametro o arquivo .afd
+						saida = argv[i+1];
 					}else{
 						cerr << "Nome do arquivo de saida nao definido" << endl;
 						Utils::printFlags();
@@ -71,6 +81,36 @@ int main(int argc, const char* argv[]){
 				}
 
 			}
+
+		}
+
+	}
+	
+	game_loop();
+	return 0;
+
+}
+
+void game_loop(){
+
+	while(1){
+		system(clear);
+		system(clear);
+		Utils::menu();
+		char c;
+		c = getchar();
+
+		switch(c){
+
+			case '1':
+			getchar();
+			afd->saveToFile();
+			break;
+
+			case 'Q':
+			case 'q':
+			return;
+			break;
 
 		}
 

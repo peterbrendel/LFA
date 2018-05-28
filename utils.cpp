@@ -25,3 +25,19 @@ void Utils::printFlags(){
 	cout << "-o * | Envia a saida para o arquivo *" << endl;
 	cout << endl << "--------------------------------------------------" << endl;
 }
+
+void Utils::menu(){
+
+	cout << "|--------------------------------------------------|" << endl;
+	cout << "|                       MENU                       |" << endl;
+	cout << "|--------------------------------------------------|" << endl;
+	cout << "| 1   Visualizar automato                          |" << endl;
+	cout << "| 2   Salvar automato                              |" << endl;
+	cout << "| 3   Minimizar automato                           |" << endl;
+	cout << "| 4   Criar novo automato                          |" << endl;
+	cout << "| Q   Sair                                         |" << endl;
+	cout << "|--------------------------------------------------|" << endl;
+	cout << "|                       MENU                       |" << endl;
+	cout << "|--------------------------------------------------|" << endl;
+
+}
