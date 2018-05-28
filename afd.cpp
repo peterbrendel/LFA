@@ -197,3 +197,21 @@ void AFD::RemoverEstado(string estado){
 	this->estados.erase(sit);
 	cout << " e foi removido." << endl;
 }
+
+void AFD::NewConnection(string q_atual, string q_proximo, char alfabeto){
+	this->conectar_estados[{q_atual, alfabeto}] = q_proximo;
+}
+
+void AFD::NewAlphabet(string alpha)
+{
+	this->alfabeto = alpha;
+}
+
+void AFD::AddFinalStates(string state){
+	this->finais.push_back(state);
+}
+
+void AFD::AddStates(string state){
+	this->estados.push_back(state);
+}
+
