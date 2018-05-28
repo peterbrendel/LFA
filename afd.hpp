@@ -15,7 +15,7 @@ private:
 	string alfabeto;
 	vector<string> finais;
 	vector<string> estados; 
-	map<pair<string,char>,string> conectar_estados;
+	map<pair<string,char>,string> conexoes;
 	map<string,int> alcancaveis;
 
 public:
