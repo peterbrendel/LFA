@@ -151,3 +151,55 @@ void AFD::saveToFile(){
 	getchar();
 
 }
+int AFD::FuncTot()
+{
+	int novoEstado = false;
+	int tam_estados = this->estados.size();
+	int tam_alfabeto = this->alfabeto.size();
+	for (int i = 0; i < tam_estados; i++)
+	{
+		for (int j = 0; j < tam_alfabeto; j++)
+		{
+			if ( !this->conexoes.count({estados[i], alfabeto[j]}) )
+			{
+				if (!novoEstado)
+				{
+					novoEstado = true;
+					AddEstados("Estadovazio");
+				}
+				this->conexoes(estados[i], "Estadovazio", alfabeto[j]);
+			}
+		}
+	}
+
+	if (novoEstado)
+	{
+		cout << " - Ocorreu o adicionamento do estado: chamado de Estadovazio\n";
+		cout << "Para que a funcao seja total" << endl;
+		for (int i = 0; i < tam_alfabeto; i++)
+			this->conexoes("Estadovazio", "Estadovazio", alfabeto[i]);
+	}
+
+	return novoEstado;
+}
+
+void AFD::AddEstados(string estado){
+	this->estados.push_back(estado);
+}
+
+void AFD::RemoverEstado(string estado)
+{
+	map<pair<string, char>, string>::iterator it = this->conexoes.begin();
+
+	for (; it != this->conexoes.end();)
+	{
+		if (it -> first.first == estado || it -> second == estado)
+		{
+			it = this->conexoes.erase(it);
+		} else it++;
+	}
+
+	vector<string>::iterator sit = find(this->estados.begin(), this->estados.end(), estado);
+	this->estados.erase(sit);
+	cout << " e foi removido.\n";
+}
